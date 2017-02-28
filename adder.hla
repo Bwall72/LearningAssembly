@@ -1,0 +1,23 @@
+program adder;
+//Take in two int8's and output the sum
+#include ("stdlib.hhf")
+
+static 
+	intA:	int8;
+	intB:	int8;
+	sum:	int8;	
+begin adder;
+	
+	stdout.put("Enter the first integer: ");
+	stdin.get(intA);
+	stdout.put(nl,"Enter the second integer: ");
+	stdin.get(intB);
+	//Use the "al" register to add the two integers
+	mov(intA, al);
+	add(intB, al );
+	mov(al, sum);
+	stdout.put(nl, "Sum: ", sum, nl);
+
+end adder;
+
+
