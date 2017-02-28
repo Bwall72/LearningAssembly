@@ -1,0 +1,33 @@
+program multiplier;
+//Using the HLA for loop to multiply two 32-bit numbers
+//Does not handle negative numbers
+//Later- check if each number is negative, multiply absolute value
+//Use flag system to set correct sign at end
+#include ("stdlib.hhf");
+
+static 
+	intA:	int32;
+	intB:	int32;
+	i:	int32;
+	product:	int32 :=  0;
+
+begin multiplier;
+
+	stdout.put("Enter the first number: ");
+	stdin.get(intA);
+	stdout.put(nl,"Enter the second number: ");
+	stdin.get(intB);
+
+	//move value of intB to register to compare with i
+	mov(intB, EBX);
+
+	mov(0, EAX);
+	for( mov(0, i); i < EBX; add(1,i)) do
+		add(intA, EAX);
+	endfor;
+	mov(EAX, product);
+	stdout.put(nl, intA, " * ", intB, " = ", product, nl);
+
+
+end multiplier;
+		
