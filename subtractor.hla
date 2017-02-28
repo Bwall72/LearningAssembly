@@ -1,0 +1,19 @@
+program subtractor;
+#include ("stdlib.hhf");
+//Using EAX register to stubtract two input
+static
+	intA:	int32;
+	intB:	int32;
+	diff:	int32;
+
+begin subtractor;
+	stdout.put("Enter the first integer:	");
+	stdin.get(intA);
+	stdout.put(nl, "Enter the second integer:	");
+	stdin.get(intB);
+	mov(intA, EAX);
+	sub(intB, EAX);
+	mov(EAX, diff);
+	stdout.put(nl, intA, " - ", intB, " = ", diff,nl);
+
+end subtractor;
