@@ -1,0 +1,39 @@
+program logictesting;
+#include ("stdlib.hhf");
+//Playing with logic functions
+static
+	intA: int8;
+	intB: int8;
+	intC: int8;
+
+begin logictesting;
+	
+	stdout.put("Enter the first value: ");
+	stdin.get(intA);
+	stdout.put(nl,"Enter the second value: ");
+	stdin.get(intB);
+	
+	//intA || intB
+	//move intA into al, evaluate intB && al -> output of intB && al stored in al
+	mov(intA, al);
+	and(intB, al);
+	stdout.put(nl, intA, " && ", intB, " = ", al, nl);
+
+	//intA || intB
+	mov(intA, al);
+	or(intB, al);
+	stdout.put(intA, " || ", intB, " = ", al, nl)
+
+	//intA xor intB
+	mov(intA, al);
+	xor(intB, al);
+	stdout.put(intA, " xor ", intB, " = ", al, nl)
+	
+	mov(intA, al);
+	and(intB, al);
+	not((type int8 al));
+	//al will either store the value -1 for true or -2 for false
+	//add 2 to correct
+	add(2, al);
+	stdout.put(intA, " nand ", intB, " = ",al, nl);	
+end logictesting;
